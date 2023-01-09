@@ -13,7 +13,11 @@ df = pd.read_csv('iris.csv')
 array = df.values
 iris = load_iris()
 clf = DecisionTreeClassifier()
-
+b,mcm,b cbreak(
+    mcbc vmbc
+    
+    cv.m,bcv.,b
+)
 X = array[:,0:4]
 y = array[:,4]
 
