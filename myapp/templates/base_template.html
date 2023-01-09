@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+
+
+    <header>
+        <div>
+                    <h1>API for Iris Species Predictor</h1>
+        </div>
+        <div>
+                    <h>ML aplication</h3>
+        </div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/preview">View Dataset</a>
+        </div>
+
+    </header>
+
+    {% block content %}{% endblock %}
+
+
+    <footer>
+            <div >
+                    &copy Copyright - Claudio Graziosi - 2022
+            </div>
+        
+    </footer>
+</body>
+</html>

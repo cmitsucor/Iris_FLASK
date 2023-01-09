@@ -1,0 +1,15 @@
+{% extends "base_template.html" %}
+
+{% block title %}Iris Species Predictor {% endblock %}
+
+{% block content %}
+
+<body>
+
+    <div align="center" class="table">
+     <h1>Iris dataset</h1>
+        {{ data|safe }}
+    </div>
+</body>
+
+{% endblock %}

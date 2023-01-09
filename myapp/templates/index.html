@@ -1,0 +1,97 @@
+{% extends "base_template.html" %}
+
+{% block title %}Iris Species Predictor {% endblock %}
+
+{% block content %}
+
+<section class = "grid">
+    <div class="card">
+      <form action="{{ url_for('analyze')}}" method="POST">
+                  <div >
+                   <p >
+                        <input type="text" id="sepal_lengthInput" name="sepal_length" min="4" max="8" value="0" step="0.1" >
+                    <label for="Sepal Length">Sepal Length</label>
+                    
+                  </div>
+                   <div >
+                   <p >
+                        <input type="text" id="sepal_widthInput" name="sepal_width" min="2" max="5" value="0" step="0.1"> 
+                    <label for="">Sepal Width</label>
+                  </div>
+                   <div >
+                   <p >
+                        <input type="text" id="petal_lengthInput" name="petal_length" min="0" max="7" value="0"
+                   step="0.1" >
+                    <label for="">Petal Length</label>
+                  </div>
+                  <div >
+                   <p >
+                        <input type="text" id="petal_widthInput" name="petal_width" min="0" max="3" value="0"
+                  step="0.1">
+                    <label for="">Petal Width</label>
+                  </div>
+                 <input type="submit" value="Predict" class="boton">
+                 <input type="reset" value="Clear" class ="boton" > 
+            </form>
+    </div>
+
+    <div class="card">
+                     <div>
+                         
+                      <p>Sepal Length: {{ sepal_length }}</p>
+                      <p>Sepal Width: {{ sepal_width }}</p>
+                      <p>Petal Length: {{ petal_length}} </p>
+                      <p>Petal Width: {{ petal_width}}</p>
+                      Using DecisionTreeClassifier on {{ clean_data }}</p>
+              
+                    </div>
+    </div>
+
+    <div class="card">
+                <h4>Prediction</h4>
+                  <div >
+                    <p> Predicted result {{ result_prediction }} </p>
+                  </div>       				
+
+                <div >           
+                      {% if result_prediction == ['versicolor'] %}
+                      <img src="{{ url_for('static', filename='imgs/iris_versicolor.jpg') }}" width="200px" height="200px">
+    
+                        {% elif result_prediction == ['setosa']  %}
+                        <img src="{{ url_for('static', filename='imgs/iris_setosa.jpg') }}" width="200px" height="200px">                        
+                        {% elif result_prediction == ['virginica']  %}
+                        <img src="{{ url_for('static', filename='imgs/iris_virginica.jpg') }}" width="200px" height="200px">
+    
+                        {% else %}
+                            <p></p>
+                       {% endif%}
+                </div>
+              
+
+    </div>
+</section>
+
+
+      {% endblock %}
+
+      {% block scripts %}
+      {{super()}}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <!-- Compiled and minified JavaScript -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+      <!-- <script type="text/javascript">
+           document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems, options);
+        });
+      </script> -->
+      
+      <script>
+          // Or with jQuery
+      
+        $(document).ready(function(){
+          $('select').formSelect();
+        });
+      </script>
+      
+      {% endblock %}
