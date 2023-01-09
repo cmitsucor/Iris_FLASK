@@ -26,6 +26,10 @@ b,mcm,b cbreak(
 )
 
 
+cvxcvsdcsdvsx.difference(y)Svx.difference(y)sdvsdv
+
+
+
 X = array[:,0:4]
 y = array[:,4]
 
